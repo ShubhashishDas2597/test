@@ -1,0 +1,2 @@
+sap.ui.define([],function(){"use strict";return{changeName:function(n){if(n.includes("Notebook")){return"Basic "+n}else{return n}},changeState:function(n){if(n<=10){return"Warning"}else if(n>10){return"Success"}},changeText:function(n){if(n<=10){return"Ending Soon"}else if(n>10){return"In Stock"}}}});
+//# sourceMappingURL=formatterfile.js.map

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<mvc:View
+    xmlns:core="sap.ui.core"
+    controllerName="product.controller.View2"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+>
+    <Page
+        showNavButton="true"
+        navButtonPress="onNavBack"
+    >
+        <headerContent>
+            <ComboBox
+                id="idCombo"
+                items="{
+                    path:'Prod>/ProductCollection',
+                    sorter:{ path: 'Prod>Name' } 
+                    }"
+                showClearIcon="true"
+                showSecondaryValues="true"
+            >
+                <core:ListItem
+                    text="{Prod>Name}"
+                    key="{Prod>ProductId}"
+                    additionalText="{Prod>ProductId}"
+                />
+            </ComboBox>
+            <Button
+                icon="sap-icon://show"
+                type="Attention"
+                press="onPressCombo"
+            />
+        </headerContent>
+        <content>
+            <!-- <Text text="{Prod>/ProductCollection/0/Name}"></Text> working stmt -->
+            <Table
+                id="idTable"
+                growing="true"
+                growingThreshold="2"
+                items="{
+                    path: 'Prod>/ProductCollection' 
+            }"
+            >
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <Text
+                            text="Products"
+                            class="sapMH5FontSize"
+                        />
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column>
+                        <Text text='Product ID' />
+                    </Column>
+                    <Column>
+                        <!-- <Text text='Image' /> -->
+                    </Column>
+                    <Column>
+                        <Text text='Category' />
+                    </Column>
+                    <Column>
+                        <Text text='Name' />
+                    </Column>
+                    <Column>
+                        <Text text='Description' />
+                    </Column>
+                    <Column>
+                        <Text text='Price' />
+                    </Column>
+                    <Column>
+                        <Text text='Availability' />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem vAlign="Middle">
+                        <cells>
+                            <Text text="{Prod>ProductId}" />
+
+                            <Avatar
+                                src="{Prod>ProductPicUrl}"
+                                displaySize="L"
+                                displayShape="Square"
+                                showBorder="false"
+                            />
+                            <Text text="{Prod>Category}" />
+                            <Text
+                                text="{ 
+                                path: 'Prod>Name',
+                                formatter: '.format.changeName'
+                             }"
+                            />
+                            <Text text="{Prod>Description}" />
+
+                            <Text text="{Prod>Price} {Prod>CurrencyCode}" />
+                            <ObjectStatus
+                                text="{
+                                    path: 'Prod>Quantity',
+                                    formatter: '.format.changeText'
+                                }"
+                                state="{
+                                    path: 'Prod>Quantity',
+                                    formatter: '.format.changeState'
+                                }"
+                                inverted="true"
+                            />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+            <!-- odata table working fully, for odata to work, we changed in manifest and ui5 yaml and ui local yaml files -->
+            <!-- <Table
+                growing="true"
+                growingThreshold="20"
+                items="{prod1>/Products}"
+            >
+                <columns>
+                    <Column>
+                        <Text text='Product ID' />
+                    </Column>
+                    <Column>
+                        <Text text='Category' />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem vAlign="Bottom">
+                        <cells>
+                            <Text text="{prod1>ProductID}" />
+                            <Text text="{prod1>CategoryID}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table> -->
+        </content>
+        <footer>
+            <OverflowToolbar>
+                <ToolbarSpacer />
+                <Button
+                    press="onOpnDialog"
+                    text="Click for Dialog"
+                    type="Emphasized"
+                />
+            </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>

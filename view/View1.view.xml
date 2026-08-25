@@ -1,0 +1,178 @@
+<mvc:View
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+    controllerName="product.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+>
+    <Page
+        id="page"
+        title="{i18n>title}"
+    >
+        <content>
+            <!-- This is a header text -->
+            <Text
+                id="idHead"
+                text="Hello Worlds"
+                textAlign="Center"
+                width="100%"
+                class="sapMH3FontSize"
+            />
+            <!-- Panel for user input -->
+            <Panel
+                backgroundDesign="Translucent"
+                expandable="true"
+                headerText="Header Trails"
+                width="80%"
+            >
+                <Label
+                    labelFor="idName"
+                    text="Enter Name"
+                    class="sapUiTinyMarginTop"
+                />
+                <Input
+                    required="true"
+                    id="idName"
+                    type="Text"
+                    placeholder="Sudarshan C"
+                    width="35%"
+                    class="sapUiSmallMarginBegin sapUiSmallMarginEnd"
+                />
+                <Button
+                    type="Emphasized"
+                    icon="sap-icon://arrow-right"
+                    text="Submit"
+                    id="idButton"
+                    press="onpress"
+                />
+            </Panel>
+
+            <ObjectHeader
+                title="Shubhashish Das"
+                backgroundDesign="Translucent"
+                number="100"
+                numberState="Success"
+                intro="Passionate SE, Liver"
+                responsive="true"
+            >
+                <ObjectAttribute
+                    title="Role"
+                    text="Software Engineer"
+                />
+                <ObjectAttribute
+                    title="City"
+                    text="Satna"
+                />
+            </ObjectHeader>
+            <IconTabBar>
+                <items>
+                    <IconTabFilter
+                        text="Eductation"
+                        icon="sap-icon://education"
+                    >
+                        <Text text="Education Details" />
+
+                        <!-- Panel for employee details -->
+                        <Panel
+                            headerText="Employee Details"
+                            stickyHeader="true"
+                            expandable="true"
+                            expanded="true"
+                            width="90%"
+                            class="sapUiTinyMarginBegin"
+                        >
+                            <l:Grid defaultSpan="L3 M3">
+                                <l:content>
+                                    <!-- 12 GRID IN TOTAL -> ELEMENTS HAI 4chaiye => 12/4 = 3 -->
+                                    <Label
+                                        class="sapUiTinyMarginTop"
+                                        text="Employee ID"
+                                        labelFor="idE"
+                                    />
+                                    <Input required="true"
+                                        type="Text"
+                                        id="idE"
+                                    />
+                                    <Label
+                                        text="Employee Name"
+                                        class="sapUiTinyMarginTop"
+                                    />
+                                    <Input type="Text" />
+                                    <Label
+                                        text="Employee Age"
+                                        class="sapUiTinyMarginTop"
+                                    />
+                                    <Input type="Text" />
+                                    <Label
+                                        text="Employee Domain"
+                                        class="sapUiTinyMarginTop"
+                                    />
+                                    <Input type="Text" />
+                                    <Label
+                                        text="Employee Dept"
+                                        class="sapUiTinyMarginTop"
+                                    />
+                                    <Input type="Text" />
+                                </l:content>
+                            </l:Grid>
+                            <f:SimpleForm
+                                editable="true"
+                                title="Organization Details"
+                                layout="ResponsiveGridLayout"
+                                labelSpanL="4"
+                                labelSpanM="4"
+                                emptySpanM="0"
+                                emptySpanL="0"
+                            >
+                                <f:content>
+                                    <core:Title text="Org Details" />
+                                    <!-- group heading dene ke liye -->
+                                    <Label text="Org Name" />
+                                    <Input type="Text" />
+                                    <Label text="Org Location" />
+                                    <Input type="Text" />
+
+                                    <core:Title text="Service Details" />
+                                    <!-- group heading dene ke liye -->
+                                    <Label text="Years of Service" />
+                                    <Input type="Text" />
+                                    <Label text="Total YOE" />
+                                    <Input type="Text" />
+                                </f:content>
+                            </f:SimpleForm>
+                        </Panel>
+                    </IconTabFilter>
+                    <IconTabFilter
+                        text="Experience"
+                        icon="sap-icon://technical-object"
+                    >
+                        <Text text="Experience Details" />
+                    </IconTabFilter>
+                    <IconTabFilter
+                        text="Hobby"
+                        icon="sap-icon://action-settings"
+                    >
+                        <Text text="Hobby Deatils" />
+                    </IconTabFilter>
+                </items>
+            </IconTabBar>
+        </content>
+        <footer>
+            <OverflowToolbar>
+                <ToolbarSpacer width="90%" />
+                <FlexBox>
+                    <!-- alignItems="End"  -->
+                    <!-- justifyContent="End"  -->
+                    <!-- > -->
+                    <Button
+                        class="sapUISmallMarginEnd"
+                        type="Emphasized"
+                        text="Submit"
+                        press="onPressButton"
+                    />
+                </FlexBox>
+            </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>
